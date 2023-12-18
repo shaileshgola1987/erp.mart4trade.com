@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<head>
+    {% include 'mart-trade/head.html' %}
+</head>
+<body>
+{% include 'mart-trade/header.html' %}
+{% include 'mart-trade/sidebar-left.html' %}
+<main id="main" class="main">
+    {% block content %}
+    {% endblock %}
+</main>
+{% include 'mart-trade/footer.html' %}
+</body>
+</html>
