@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/shivmarb/erp.mart4trade.com
+    - /bin/cp -R * $DEPLOYPATH
