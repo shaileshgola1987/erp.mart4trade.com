@@ -1,15 +1,16 @@
 import os
 import sys
 
-
 import django.core.handlers.wsgi
 from django.core.wsgi import get_wsgi_application
 
-# Set up paths and environment variables
+
+#sys.path.insert(0, os.path.dirname(__file__))
+
 sys.path.append(os.getcwd())
 os.environ['DJANGO_SETTINGS_MODULE'] = 'martapis.settings'
 
-# Set script name for the PATH_INFO fix below
+
 SCRIPT_NAME = os.getcwd()
 
 class PassengerPathInfoFix(object):
