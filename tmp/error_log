@@ -1,0 +1,46 @@
+[01-Jan-2024 10:41:17 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/ec6f26914b53d0286917abc2caed15a6.pl on line 73
+[01-Jan-2024 10:41:20 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/ec6f26914b53d0286917abc2caed15a6.pl on line 73
+[01-Jan-2024 10:41:25 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/ec6f26914b53d0286917abc2caed15a6.pl on line 49
+[01-Jan-2024 10:41:25 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/ec6f26914b53d0286917abc2caed15a6.pl on line 74
+[01-Jan-2024 10:41:25 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/ec6f26914b53d0286917abc2caed15a6.pl on line 74
+[24-Jan-2024 09:01:39 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/2b450ca1be805beb984a06e4dcfd6df0.pl on line 73
+[24-Jan-2024 09:01:46 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/2b450ca1be805beb984a06e4dcfd6df0.pl on line 73
+[24-Jan-2024 09:01:47 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/2b450ca1be805beb984a06e4dcfd6df0.pl on line 49
+[24-Jan-2024 09:01:47 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/2b450ca1be805beb984a06e4dcfd6df0.pl on line 74
+[24-Jan-2024 09:01:47 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/2b450ca1be805beb984a06e4dcfd6df0.pl on line 74
+[31-Jan-2024 04:09:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kh() in /home/shivmarb/erp.mart4trade.com/tmp/admin-ajax.php:84
+Stack trace:
+#0 {main}
+  thrown in /home/shivmarb/erp.mart4trade.com/tmp/admin-ajax.php on line 84
+[31-Jan-2024 04:09:47 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 73
+[31-Jan-2024 04:09:52 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 73
+[31-Jan-2024 04:09:53 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 73
+[31-Jan-2024 04:09:54 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 73
+[31-Jan-2024 04:09:57 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 73
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 49
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 49
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:10 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:13 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 49
+[31-Jan-2024 04:11:13 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:13 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 74
+[31-Jan-2024 04:11:15 UTC] PHP Notice:  Undefined offset: -1 in /home/shivmarb/erp.mart4trade.com/tmp/e674b0e792f90ae4e8cb399ad2f0aaeb.pl on line 55
+[31-Jan-2024 04:11:18 UTC] PHP Warning:  unlink(./e674b0e792f90ae4e8cb399ad2f0aaeb.pl): No such file or directory in /home/shivmarb/erp.mart4trade.com/tmp/admin.php on line 50
+[07-Feb-2024 03:14:50 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 73
+[07-Feb-2024 03:14:55 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 73
+[07-Feb-2024 03:14:56 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/55fb30edd709f344e57d66f2efd08da0.pl on line 73
+[07-Feb-2024 03:14:57 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/55fb30edd709f344e57d66f2efd08da0.pl on line 73
+[07-Feb-2024 03:14:58 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 73
+[07-Feb-2024 03:14:59 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 73
+[07-Feb-2024 03:15:00 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/55fb30edd709f344e57d66f2efd08da0.pl on line 73
+[07-Feb-2024 03:15:00 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/55fb30edd709f344e57d66f2efd08da0.pl on line 73
+[07-Feb-2024 03:15:03 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 49
+[07-Feb-2024 03:15:03 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 74
+[07-Feb-2024 03:15:03 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 74
+[07-Feb-2024 03:15:07 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 49
+[07-Feb-2024 03:15:07 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 74
+[07-Feb-2024 03:15:07 UTC] PHP Notice:  Undefined index: DOCUMENT_ROOT in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 74
+[07-Feb-2024 03:15:08 UTC] PHP Notice:  Undefined offset: -1 in /home/shivmarb/erp.mart4trade.com/tmp/b7b1533e28d10ae8a4f108dfc0a14748.pl on line 55
+[07-Feb-2024 03:15:08 UTC] PHP Warning:  unlink(./b7b1533e28d10ae8a4f108dfc0a14748.pl): No such file or directory in /home/shivmarb/erp.mart4trade.com/tmp/options.php on line 40
