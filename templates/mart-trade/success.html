@@ -1,0 +1,10 @@
+{% extends 'mart-trade/base.html' %}
+{% block content %}
+      <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
+      	{% if success %}
+        <h1>{{success}}</h1>
+        <h2>{{error}}</h2>
+        {% endif %}
+        <a class="btn" href="{% url 'index' %}">Back to home</a>
+      </section>
+{% endblock %}

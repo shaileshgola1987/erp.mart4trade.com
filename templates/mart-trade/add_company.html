@@ -1,0 +1,289 @@
+{% extends 'mart-trade/base.html' %}
+{% block content %}
+    <section class="section">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Add Company</h5>
+                  <!-- Multi Columns Form -->
+                  <form class="row g-3" action="{% url 'create_company' %}" method="post">
+                    {% csrf_token %}
+                    <div class="col-md-12">
+                      <label for="inputName5" class="form-label">Company Name *</label>
+                      <input type="text" class="form-control" id="company_name" name="company_name" required>
+                    </div>
+                    <div class="col-12">
+                      <label for="inputAddress5" class="form-label">Address *</label>
+                      <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="inputCountry" class="form-label">Country *</label>
+                      <select id="inputCountry" class="form-select" name="country_code" onchange="fetchData()" required>
+                          <option selected="">Choose Country</option>
+                          {% for country in country %}
+                          <option value="{{country.country_code}}">{{country.name}}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="inputState" class="form-label">State *</label>
+                    <select id="inputState" class="form-select" name="state" onchange="fetchCity()" required>
+                        <option selected="">Choose State</option>
+                        <!-- States will be dynamically added here after fetching -->
+                    </select>
+                  </div>
+                    <div class="col-md-3">
+                      <label for="inputCity" class="form-label">City *</label>
+                      <select id="inputCity" class="form-select" name="city" required>
+                          <option selected="">Choose City</option>
+                          <!-- States will be dynamically added here after fetching -->
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="inputZip" class="form-label">Pin Code *</label>
+                      <input type="text" class="form-control" id="pincode" name="pincode" required>
+                    </div>
+                    <div class="row g-3">
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Gst</label>
+                        <input type="text" class="form-control" id="gst" name="GST">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Pan No</label>
+                        <input type="text" class="form-control" id="pan_no" name="pan_no">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Tan No</label>
+                        <input type="text" class="form-control" id="tan_no" name="tan_no">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Number of Employees</label>
+                        <input type="text" class="form-control" id="no_emp" name="no_emp">
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Year of Establishment</label>
+                        <input type="text" class="form-control" id="year_of_est" name="year_of_est">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="if_export" name="if_export" checked>
+                          <label class="form-check-label" for="if_export">
+                              Exporter
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="if_manufacturer" name="if_manufacturer">
+                          <label class="form-check-label" for="if_manufacturer">
+                              Manufacturer
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="if_supplier" name="if_supplier">
+                          <label class="form-check-label" for="if_supplier">
+                              Supplier
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="if_trader" name="if_trader">
+                          <label class="form-check-label" for="if_trader">
+                              Trader
+                          </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="if_service" name="if_service">
+                          <label class="form-check-label" for="if_service">
+                              Service
+                          </label>
+                      </div>
+                  </div>
+                  
+                    <div class="col-md-12">
+                      <hr>
+                      <h6>Exporter/Manufaturer/Supplier/Trader/Service Keywords & Categorty </h6>
+                      <div class="form-control">
+                        <label class="form-label" for="pro_exporter">Exporter Category</label>
+                        <input type="text" class="form-control" id="exp_category" name="exp_category">
+
+                        <label class="form-label" for="pro_exporter">Exporter</label>
+                        <textarea class="form-control" id="pro_exporter" rows="4" name="pro_exporter"></textarea>
+                        
+                        <label class="form-label" for="pro_exporter">Manufacturer Category</label>
+                        <input type="text" class="form-control" id="man_category" name="man_category">
+                        
+                        <label class="form-label" for="pro_manufacturer">Manufacturer</label>
+                        <textarea class="form-control" id="pro_manufacturer" rows="4" name="pro_manufacturer"></textarea>
+
+                        <label class="form-label" for="pro_exporter">Supplier Category</label>
+                        <input type="text" class="form-control" id="supp_category" name="supp_category">
+
+                        <label class="form-label" for="pro_manufacturer">Supplier</label>
+                        <textarea class="form-control" id="pro_supplier" rows="4" name="pro_supplier"></textarea>
+
+                        <label class="form-label" for="pro_exporter">Trader Category</label>
+                        <input type="text" class="form-control" id="trade_category" name="trade_category" >
+
+                        <label class="form-label" for="pro_manufacturer">Trader</label>
+                        <textarea class="form-control" id="pro_trader" rows="4" name="pro_trader"></textarea>
+
+                        <label class="form-label" for="pro_exporter">Service Category</label>
+                        <input type="text" class="form-control" id="service_category" name="service_category">
+                        
+
+                        <label class="form-label" for="pro_manufacturer">Service Provider</label>
+                        <textarea class="form-control" id="pro_service" rows="4" name="pro_service"></textarea>
+                      </div>
+                    </div>
+                    <div class="row g-3">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="directory_listing" name="directory_listing">
+                        <label class="form-check-label" for="if_service">
+                          Directory Listing
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row g-3">
+                        <h5 class="text-center">Contact Person</h5>
+                        <div class="col-md-4">
+                          <label for="inputName5" class="form-label">First Name * </label>
+                          <input type="text" class="form-control" id="f_name" name="f_name" required>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="inputName5" class="form-label">Middle Name</label>
+                          <input type="text" class="form-control" id="m_name" name="m_name">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="inputName5" class="form-label">Last Name * </label>
+                          <input type="text" class="form-control" id="l_name" name="l_name" required>
+                        </div>
+                        <div class="col-md-12">
+                          <label for="inputUsername" class="form-label">Username *</label>
+                          <input type="text" class="form-control" id="inputUsername" name="username" required >
+                        </div>
+                        <div class="col-md-12">
+                          <label for="inputPassword" class="form-label">Password * </label>
+                          <input type="password" class="form-control" id="inputPassword" name="password" required>
+                        </div>
+                        <div class="col-md-12">
+                          <label for="inputDesignation" class="form-label">Desigination</label>
+                          <input type="text" class="form-control" id="inputDesignation" name="designation">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputEmail" class="form-label">Email Id *</label>
+                          <input type="text" class="form-control" id="inputEmail" name="email_id" required>
+                          <div id="emailError" style="color:red;"></div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputMobile" class="form-label">Mobile No *</label>
+                          <input type="text" class="form-control" id="inputMobile" name="mobile_no" required >
+                        </div>
+                      
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary" id="saveButton">Submit</button>
+                      <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                  </form><!-- End Multi Columns Form -->
+    
+                </div>
+              </div>
+        </div>
+    </section>
+    <script>
+        // Function to perform AJAX POST request
+        function fetchData() {
+          var country_code = $('#inputCountry').val();
+          var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+          
+          $.ajax({
+              type: 'POST',
+              url: '{% url "select_state" %}',
+              data: {
+                  country_code: country_code,
+                  csrfmiddlewaretoken: csrf_token
+              },
+              success: function (response) {
+                  var selectOptions = '<option selected="">Choose State</option>';
+                  $.each(response, function (index, state) {
+                      selectOptions += '<option value="' + state.state + '">' + state.state + '</option>';
+                  });
+                  $('#inputState').html(selectOptions);
+              },
+              error: function (error) {
+                  console.log('Error:', error);
+              }
+          });
+      }
+      function fetchCity() {
+          var state = $('#inputState').val();
+          var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+          
+          $.ajax({
+              type: 'POST',
+              url: '{% url "select_city" %}',
+              data: {
+                  state: state,
+                  csrfmiddlewaretoken: csrf_token
+              },
+              success: function (response) {
+                  var selectOptions = '<option selected="">Choose City</option>';
+                  $.each(response, function (index, city) {
+                      selectOptions += '<option value="' + city.city_id + '">' + city.city + '</option>';
+                  });
+                  $('#inputCity').html(selectOptions);
+              },
+              error: function (error) {
+                  console.log('Error:', error);
+              }
+          });
+      }
+
+      function checkEmail() {
+    var email = $('#inputEmail').val();
+
+    // Regular expression for email validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validate email format
+    if (!emailRegex.test(email)) {
+        $('#emailError').html('Invalid email format');
+        return;
+    }
+
+    var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+    
+    $.ajax({
+        type: 'POST',
+        url: '{% url "check_email" %}',
+        data: {
+            email_id: email,
+            csrfmiddlewaretoken: csrf_token
+        },
+        success: function (response, status, xhr) {
+            // Handle the response
+            console.log("Email Id check response=========", response);
+
+            if (response.success) {
+                $('#emailError').html(response.message); // Assuming response contains a message
+
+                // Check the status code
+                if (xhr.status === 409) {
+                    // Disable the save button
+                    $('#saveButton').prop('disabled', true);
+                }
+            } else {
+                // Handle error response
+                $('#emailError').html('Error: ' + response.message);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log('Error:', error);
+            $('#emailError').html('Error: ' + error);
+        }
+    });
+}
+$(document).ready(function() {
+    $('#inputEmail').blur(checkEmail);
+});     
+    </script>
+{% endblock %}
