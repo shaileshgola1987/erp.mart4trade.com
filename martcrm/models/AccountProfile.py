@@ -12,7 +12,7 @@ class AccountProfiles(models.Model):
     id = models.AutoField(primary_key=True,db_column='uniq_id')
     userid = models.ForeignKey('UserAccounts', models.DO_NOTHING, db_column='userid', related_name='accountprofiles_userid')
     profile = models.ForeignKey('ProfileMaster', models.DO_NOTHING, blank=True, null=True, related_name='accountprofiles_profile')
-    default_account = models.NullBooleanField()
+    default_account = models.BooleanField(null=True)
 
     class Meta:
         managed = False

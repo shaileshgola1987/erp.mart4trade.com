@@ -12,7 +12,7 @@ class AccountEmails(models.Model):
     uniq_id = models.AutoField(primary_key=True)
     userid = models.ForeignKey('UserAccounts', models.DO_NOTHING, db_column='userid', related_name='accountemails_userid')
     email_key = models.ForeignKey('EmailMaster', models.DO_NOTHING, db_column='email_key', related_name='accountemails_email_key')
-    ifdefault = models.NullBooleanField()
+    ifdefault = models.BooleanField(null=True)
 
     class Meta:
         managed = False
