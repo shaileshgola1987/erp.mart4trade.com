@@ -1,11 +1,11 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
-from martcrm.models.CountryStates import CountryStates
+from martcrm.models import CountryMaster  # Import CountryMaster model
 from decimal import Decimal, InvalidOperation
 from django.core.exceptions import ValidationError
 
 class Command(BaseCommand):
-    help = 'Import data from CSV to CountryStates model'
+    help = 'Import data from CSV to CountryMaster model'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_file', type=str, help='/home/shivmarb/erp.mart4trade.com/change_log/country_master.csv')
@@ -27,16 +27,13 @@ class Command(BaseCommand):
                 # Check for NaN values in 'isd_code'
                 isd_code = row[3].strip() if (pd.notna(row[3]) and row[3].strip() != '') else None
 
-                # Create CountryMaster object without the columns you want to skip
-                country_master = CountryStates(
+                # Create CountryMaster object
+                country_master_instance, created = CountryMaster.objects.get_or_create(
                     country_code=row[0],
                     name=row[1],
                     risk_level=row[2],
                     isd_code=isd_code
                 )
-
-                # Save the object to the database
-                country_master.save()
             except InvalidOperation as e:
                 self.stderr.write(f'Error importing data: {e}')
             except ValidationError as e:

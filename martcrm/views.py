@@ -13,7 +13,7 @@ from martcrm.models.EmailMaster import EmailMaster
 from martcrm.models.MobileMaster import MobileMaster
 from martcrm.models.AccountProfile import AccountProfiles
 from martcrm.helper.category import build_category_tree
-from martcrm.helper.register_profile import create_profile
+from martcrm.helper.register_profile import create_profile,list_profile
 from django.db import transaction
 from django.urls import reverse
 from django.http import JsonResponse
@@ -122,8 +122,37 @@ def register(request):
 
 @csrf_exempt
 def search(request):
-    return render(request,'mart-trade/search.html')
+    context = dict()
+    if request.method == 'POST':
+        kwargs= {}
+        kwargs['co_name'] = request.POST.get('co_name')
+        kwargs['email_id'] = request.POST.get('email_id')
+        kwargs['profile_id'] = request.POST.get('profile_id')
+        kwargs['mobile_no'] = request.POST.get('mobile_no')
+        kwargs['username'] = request.POST.get('username')
+        kwargs['userid'] = request.POST.get('userid')
+
+        profile_detail = list_profile(request,**kwargs)
+        print(profile_detail.__dict__)
+        context['profile_detail'] = profile_detail
+        return render(request,'mart-trade/profile_list.html',context)
+    else:
+        return render(request,'mart-trade/search.html')
     
+
+def view_profile(request, profile_id):
+    context = {}
+    profile_obj = ProfileMaster.objects.filter(profile_id=profile_id).first()
+    if profile_obj:
+        context['profile_detail'] = profile_obj
+    else:
+        context['error'] = f"No Profile Found"
+    return render(request, 'mart-trade/view_profile.html', context)
+
+def profile_list(request):
+    context = {}
+    return render(request,'mart-trade/profile_list.html',context)
+
 @csrf_exempt
 def add_category(request):
     context = {}
@@ -258,7 +287,7 @@ def create_company(request):
         kwargs['serv_category'] = request.POST.get('serv_category')
         kwargs['trader_category'] = request.POST.get('trader_category')
         kwargs['supplier_category'] = request.POST.get('supplier_category')
-        kwargs['directory_listing'] = request.POST.get('directory_listing')
+        kwargs['directory_listing'] = 'directory_listing' in request.POST
         kwargs['tan_no'] = request.POST.get('tan_no')
         kwargs['gst_no'] = request.POST.get('gst_no')
         kwargs['pan_no'] = request.POST.get('pan_no')
@@ -273,13 +302,14 @@ def create_company(request):
         try:
             profile_obj = create_profile(request,**kwargs)
             print("Profile====Obj ==",profile_obj);
+            message = f"Profile Created Successfully! {profile_obj}"
+            context.update({'success': message})
+            return render(request, 'mart-trade/success.html', context)
         except Exception as ex:
             print(f"There is some error in company registration {ex}")
             raise
 
-        message = "Profile Created Successfully!"
-        context.update({'success': kwargs.get('company_name')})
-        return render(request, 'mart-trade/success.html', context)
+        
     return render(request, 'mart-trade/add_company.html', context)
 
 

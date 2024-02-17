@@ -1,0 +1,38 @@
+{% extends 'mart-trade/base.html' %}
+{% block content %}
+    <section class="section">
+        <div class="row g-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">List of profiles</h5>
+                      <!-- Table with stripped rows -->
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Profile Id</th>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">State</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{profile_detail.profile_id}}</th>
+                            <td>{{profile_detail.co_name}}</td>
+                            <td>{{profile_detail.address}}<br>{{profile_detail.pincode}}</td>
+                            <td>{{profile_detail.state}}</td>
+                            <td>{{profile_detail.country_code}}</td>
+                            <td><a href="{% url 'view_profile' profile_detail.profile_id %}">view</a> / <a href="{% url 'view_profile' profile_detail.profile_id %}">Edit</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- End Table with stripped rows -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
