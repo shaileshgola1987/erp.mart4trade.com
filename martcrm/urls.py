@@ -17,5 +17,6 @@ urlpatterns = [
     path('upload_bulk_profiles',views.upload_bulk_profiles,name='upload_bulk_profiles'),
     path('check_email',views.check_email,name='check_email'),
     path('select_categories',views.select_categories,name='select_categories'),
-
+    path('profile_list',views.profile_list,name='profile_list'),
+    path('view_profile/<int:profile_id>',views.view_profile,name='view_profile'),
     ]

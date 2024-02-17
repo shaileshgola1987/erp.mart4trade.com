@@ -10,6 +10,7 @@ from django.db import transaction
 
 
 def create_profile(request,**kwargs):
+    import pdb;pdb.set_trace()
     client_id = request.session.get('client_id')
     try:
         with transaction.atomic() as txn:
@@ -27,26 +28,26 @@ def create_profile(request,**kwargs):
                 city=kwargs.get('city'),
                 state=kwargs.get('state'),
                 country_code=kwargs.get('country_code'),
-                # estd=kwargs.get('estd'),
-                # staff=kwargs.get('staff'),
-                # prod_exp=kwargs.get('prod_exp'),
-                # prod_manu=kwargs.get('prod_manu'),
-                # prod_supplier=kwargs.get('prod_supplier'),
-                # prod_serv=kwargs.get('prod_serv'),
-                # prod_trader=kwargs.get('prod_trader'),
-                # # ifexporter=kwargs.get('ifexporter'),
-                # # ifservice=kwargs.get('ifservice'),
-                # # ifmanu=kwargs.get('ifmanu'),
-                # # iftrader=kwargs.get('iftrader'),
-                # gst_no=kwargs.get('gst_no'),
-                # pan_no=kwargs.get('pan_no'),
-                # tan_no=kwargs.get('tan_no'),
-                # export_category=kwargs.get('export_category'),
-                # manu_category=kwargs.get('manu_category'),
-                # trader_category=kwargs.get('trader_category'),
-                # supplier_category=kwargs.get('supplier_category'),
-                # serv_category=kwargs.get('serv_category'),
-                # directory_listing=kwargs.get('directory_listing')
+                estd=kwargs.get('estd'),
+                staff=kwargs.get('staff'),
+                prod_exp=kwargs.get('prod_exp'),
+                prod_manu=kwargs.get('prod_manu'),
+                prod_supplier=kwargs.get('prod_supplier'),
+                prod_serv=kwargs.get('prod_serv'),
+                prod_trader=kwargs.get('prod_trader'),
+                ifexporter=kwargs.get('ifexporter'),
+                ifservice=kwargs.get('ifservice'),
+                ifmanu=kwargs.get('ifmanu'),
+                iftrader=kwargs.get('iftrader'),
+                gst_no=kwargs.get('gst_no'),
+                pan_no=kwargs.get('pan_no'),
+                tan_no=kwargs.get('tan_no'),
+                export_category=kwargs.get('export_category'),
+                manu_category=kwargs.get('manu_category'),
+                trader_category=kwargs.get('trader_category'),
+                supplier_category=kwargs.get('supplier_category'),
+                serv_category=kwargs.get('serv_category'),
+                directory_listing=kwargs.get('directory_listing')
             )
             print("Profile obj == ",profile_obj)
             email_key = email_obj.email_key
@@ -66,4 +67,20 @@ def create_profile(request,**kwargs):
         raise
 
 
+def list_profile(request,**kwargs):
+    if kwargs.get('email_id'):
+        email_obj = EmailMaster.objects.filter(email=kwargs.get('email_id')).first()
+        if email_obj:
+            email_key = email_obj.email_key
+            account_email_obj = AccountEmails.objects.filter(email_key=email_key).first()
+            if account_email_obj:
+                userid = account_email_obj.userid
+                userid_obj = AccountProfiles.objects.filter(userid=userid).first()
+                if userid_obj:
+                    profile_id = userid_obj.profile_id
+                    profile_obj = ProfileMaster.objects.filter(profile_id=profile_id).first()
+                    print(profile_obj)
+                    return profile_obj
+                else:
+                    return 0
     
