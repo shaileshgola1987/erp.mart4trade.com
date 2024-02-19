@@ -78,7 +78,7 @@
 #
 #
 #### Django ###
-*.php
+
 *.log
 *.pot
 *.pyc
