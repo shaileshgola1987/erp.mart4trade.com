@@ -138,6 +138,7 @@ def search(request):
         else:
             context['error'] = "No Profile Found"
         return render(request,'mart-trade/profile_list.html',context)
+    
     else:
         return render(request,'mart-trade/search.html')
 
