@@ -1,5 +1,20 @@
 {% extends 'mart-trade/base.html' %}
 {% block content %}
+  {% if error %}
+    <section class="section">
+      <div class="row g-3">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{error}}</h5>
+              <a href="{% url 'create_company'%}" class="btn btn-primary">Add Company</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% else %}
+  
     <section class="section">
         <div class="row g-3">
             <div class="col-md-12">
@@ -35,4 +50,5 @@
             </div>
         </div>
     </section>
+  {% endif %}
 {% endblock %}
