@@ -58,7 +58,7 @@ def login(request):
 
                 context.update({'client_id':user_obj.client_id,'contact_person':user_obj.contact_person,'co_name':user_obj.co_name})
 
-                return redirect ('index')            
+                return redirect ('index')
 
     return render(request,'mart-trade/login.html')
 
@@ -70,7 +70,7 @@ def logout(request):
         try:
             if logout:
                 request.session.clear()
-                return HttpResponseRedirect(reverse('login')) 
+                return HttpResponseRedirect(reverse('login'))
         except Exception as ex:
             error = f"There is some error in execution {ex}"
             context.update({'error': error, 'status': 400})
@@ -133,12 +133,14 @@ def search(request):
         kwargs['userid'] = request.POST.get('userid')
 
         profile_detail = list_profile(request,**kwargs)
-        print(profile_detail.__dict__)
-        context['profile_detail'] = profile_detail
+        if profile_detail:
+            context['profile_detail'] = profile_detail
+        else:
+            context['error'] = "No Profile Found"
         return render(request,'mart-trade/profile_list.html',context)
     else:
         return render(request,'mart-trade/search.html')
-    
+
 
 def view_profile(request, profile_id):
     context = {}
@@ -309,7 +311,7 @@ def create_company(request):
             print(f"There is some error in company registration {ex}")
             raise
 
-        
+
     return render(request, 'mart-trade/add_company.html', context)
 
 
@@ -326,7 +328,7 @@ def check_email(request):
             return JsonResponse({'message': "Email id already registered", 'status': 409})
         else:
             return JsonResponse({'message': "Email id not registered.", 'status': 200})
-        
+
 
 def select_categories(request):
     if request.method == 'GET':
